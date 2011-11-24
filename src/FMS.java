@@ -1,9 +1,11 @@
 public class FMS {
 	FMS()
 	{
+		DSReceiver ds = new DSReceiver();
+		ds.start();
 		try {
 			System.out.println("Enter team number:");
-			Team team = new Team(Utils.readInt(System.in), 1, 1);
+			Team team = new Team(Utils.readInt(System.in), 2, 1);
 			team.setState(1, false);
 			team.startDSUpdates();
 			

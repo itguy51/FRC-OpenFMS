@@ -15,6 +15,7 @@ public class DSReceiver extends Thread {
 			e.printStackTrace();
 		}
 	}
+	
 	public void run()
 	{
 		byte[] data = new byte[50];
