@@ -44,7 +44,14 @@ public class Team extends Thread
 			e.printStackTrace();
 		}
 	}
-	
+	public void setTeamNumber(int number){
+            String teamIP = "10.".concat(new Float((float)number/(float)100).toString().concat(".5"));
+		try {
+			addr = InetAddress.getByName(teamIP);
+		} catch (UnknownHostException e) {
+			e.printStackTrace();
+		}
+        }
 	void startDSUpdates()
 	{
 		if ( runUpdateThread ) return;

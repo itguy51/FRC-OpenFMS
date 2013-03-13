@@ -3,7 +3,8 @@ public class FMS {
 	{
 		DSReceiver ds = new DSReceiver();
 		ds.start();
-		try {
+                System.out.println("Ok");
+		/*try {
 			System.out.println("Enter team number:");
 			Team team = new Team(Utils.readInt(System.in), 2, 1);
 			team.setState(1, false);
@@ -33,7 +34,12 @@ public class FMS {
 		catch ( InterruptedException e)
 		{
 		
-		}
+		}*/
+                java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new MainFMSDialog().setVisible(true);
+            }
+        });
 	}
 	
 	public static void main(String[] args)
