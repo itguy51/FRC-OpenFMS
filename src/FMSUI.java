@@ -212,8 +212,6 @@ public class FMSUI extends javax.swing.JPanel {
 
         jLabel4.setText("Current Bot States - Disabled");
 
-        jLabel5.setText("jLabel5");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
