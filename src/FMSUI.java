@@ -123,6 +123,11 @@ public class FMSUI extends javax.swing.JPanel {
         });
 
         jCheckBox2.setText("Disable");
+        jCheckBox2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jCheckBox2MouseClicked(evt);
+            }
+        });
         jCheckBox2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jCheckBox2ActionPerformed(evt);
@@ -130,6 +135,11 @@ public class FMSUI extends javax.swing.JPanel {
         });
 
         jCheckBox3.setText("Disable");
+        jCheckBox3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jCheckBox3MouseClicked(evt);
+            }
+        });
         jCheckBox3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jCheckBox3ActionPerformed(evt);
@@ -137,6 +147,11 @@ public class FMSUI extends javax.swing.JPanel {
         });
 
         jCheckBox4.setText("Disable");
+        jCheckBox4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jCheckBox4MouseClicked(evt);
+            }
+        });
         jCheckBox4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jCheckBox4ActionPerformed(evt);
@@ -144,6 +159,11 @@ public class FMSUI extends javax.swing.JPanel {
         });
 
         jCheckBox5.setText("Disable");
+        jCheckBox5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jCheckBox5MouseClicked(evt);
+            }
+        });
         jCheckBox5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jCheckBox5ActionPerformed(evt);
@@ -151,6 +171,11 @@ public class FMSUI extends javax.swing.JPanel {
         });
 
         jCheckBox6.setText("Disable");
+        jCheckBox6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jCheckBox6MouseClicked(evt);
+            }
+        });
         jCheckBox6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jCheckBox6ActionPerformed(evt);
@@ -398,8 +423,33 @@ public class FMSUI extends javax.swing.JPanel {
 
     private void jCheckBox1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCheckBox1MouseClicked
         // TODO add your handling code here:
-        //game.setRed1(!jCheckBox1.isSelected());
+        game.setred1(!jCheckBox1.isSelected());
     }//GEN-LAST:event_jCheckBox1MouseClicked
+
+    private void jCheckBox2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCheckBox2MouseClicked
+        // TODO add your handling code here:
+        game.setred2(!jCheckBox2.isSelected());
+    }//GEN-LAST:event_jCheckBox2MouseClicked
+
+    private void jCheckBox3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCheckBox3MouseClicked
+        // TODO add your handling code here:
+        game.setred3(!jCheckBox3.isSelected());
+    }//GEN-LAST:event_jCheckBox3MouseClicked
+
+    private void jCheckBox4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCheckBox4MouseClicked
+        // TODO add your handling code here:
+        game.setblue1(!jCheckBox4.isSelected());
+    }//GEN-LAST:event_jCheckBox4MouseClicked
+
+    private void jCheckBox5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCheckBox5MouseClicked
+        // TODO add your handling code here:
+        game.setblue2(!jCheckBox5.isSelected());
+    }//GEN-LAST:event_jCheckBox5MouseClicked
+
+    private void jCheckBox6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCheckBox6MouseClicked
+        // TODO add your handling code here:
+        game.setblue3(!jCheckBox6.isSelected());
+    }//GEN-LAST:event_jCheckBox6MouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
