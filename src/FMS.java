@@ -3,7 +3,14 @@ public class FMS {
 	{
 		DSReceiver ds = new DSReceiver();
 		ds.start();
-                System.out.println("Ok");
+                //FMSService serv = new FMSService();
+                //serv.start();
+                java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new MainFMSDialog().setVisible(true);
+            }
+        });
+                System.out.println("FMS Daemon Online");
 		/*try {
 			System.out.println("Enter team number:");
 			Team team = new Team(Utils.readInt(System.in), 2, 1);
@@ -35,11 +42,7 @@ public class FMS {
 		{
 		
 		}*/
-                java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new MainFMSDialog().setVisible(true);
-            }
-        });
+
 	}
 	
 	public static void main(String[] args)

@@ -12,6 +12,7 @@ import java.util.logging.Logger;
  * @author Josh
  */
 public class GovernThread extends Thread{
+    private String state = "Disabled";
     private Team red1, red2, red3, blue1, blue2, blue3;
     public GovernThread(){
         System.out.println("Ok1");
@@ -63,6 +64,9 @@ public class GovernThread extends Thread{
         blue2.stopDSUpdates();
         blue3.stopDSUpdates();
     }
+    public String getMatchState(){
+        return state;
+    }
     public void run(){
         try {
             red1.setState(1, true);
@@ -72,15 +76,18 @@ public class GovernThread extends Thread{
             blue2.setState(1, true);
             blue3.setState(1, true);
             System.out.println("Autonomous Start");
+            state = "Autonomous";
             Thread.sleep(15000);
 
             System.out.println("Autonomous End");
+            
             red1.setState(2, false);
             red2.setState(2, false);
             red3.setState(2, false);
             blue1.setState(2, false);
             blue2.setState(2, false);
             blue3.setState(2, false);
+            state = "Disabled";
             Thread.sleep(1000);
 
             red1.setState(2, true);
@@ -90,6 +97,7 @@ public class GovernThread extends Thread{
             blue2.setState(2, true);
             blue3.setState(2, true);
             System.out.println("Teleop Start");
+            state = "Teleop";
             Thread.sleep(120000);
 
             System.out.println("Teleop End");
@@ -99,7 +107,7 @@ public class GovernThread extends Thread{
             blue1.setState(2, false);
             blue2.setState(2, false);
             blue3.setState(2, false);
-
+            state = "Disabled";
             Thread.sleep(1000);
             stop();
         } catch (InterruptedException ex) {

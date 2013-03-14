@@ -1,3 +1,9 @@
+
+import java.util.Timer;
+import java.util.TimerTask;
+
+
+
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -10,6 +16,7 @@
 public class FMSUI extends javax.swing.JPanel {
     private boolean comms = false;
     private GovernThread game;
+    private Timer t;
     /**
      * Creates new form FMSUI
      */
@@ -17,7 +24,7 @@ public class FMSUI extends javax.swing.JPanel {
         game = new GovernThread();
         
         
-        
+        t = new Timer();
         initComponents();
         setVisible(true);
     }
@@ -48,6 +55,9 @@ public class FMSUI extends javax.swing.JPanel {
         jButton1 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
+        jProgressBar1 = new javax.swing.JProgressBar();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
 
         jLabel1.setText("Red Alliance");
 
@@ -173,6 +183,12 @@ public class FMSUI extends javax.swing.JPanel {
             }
         });
 
+        jProgressBar1.setMaximum(270);
+
+        jLabel4.setText("Current Bot States - Disabled");
+
+        jLabel5.setText("jLabel5");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -213,7 +229,12 @@ public class FMSUI extends javax.swing.JPanel {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jLabel3))
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE))
+                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 603, Short.MAX_VALUE)
+                    .addComponent(jProgressBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel5)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -253,12 +274,24 @@ public class FMSUI extends javax.swing.JPanel {
                 .addComponent(jButton1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 87, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel5))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 174, Short.MAX_VALUE)
                 .addComponent(jLabel3)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
+    public void runForm(){
+        initComponents();
 
+    }
+    private void updateProBar(){
+        jProgressBar1.setValue(jProgressBar1.getValue() + 1);
+    }
     private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jCheckBox1ActionPerformed
@@ -326,15 +359,37 @@ public class FMSUI extends javax.swing.JPanel {
         if(!comms){
             game.startComms();
             jButton1.setText("Close Communications");
+            comms = !comms;
         }else{
             game.stopComms();
             jButton1.setText("Initialize Communications");
+            comms = !comms;
         }
     }//GEN-LAST:event_jButton1MouseClicked
-
+    public void runMatch(){
+        jButton2MouseClicked(null);
+    }
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
         // TODO add your handling code here:
-        game.run();
+        game.start();
+        t.schedule(new TimerTask(){
+            private int times = 0;
+
+            @Override
+            public void run() {
+                times++;
+                if(times <= 272){
+                    updateProBar();
+                    jLabel4.setText("Current Bot States - " + game.getMatchState());
+                    jLabel5.setText((136 - (times/2)) + "");
+                }else{
+                    jLabel4.setText("Current Bot States - Disabled");
+                    this.cancel();
+                }
+                //throw new UnsupportedOperationException("Not supported yet.");
+                
+            }
+        }, 0, 500);
     }//GEN-LAST:event_jButton2MouseClicked
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -358,6 +413,9 @@ public class FMSUI extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JProgressBar jProgressBar1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
