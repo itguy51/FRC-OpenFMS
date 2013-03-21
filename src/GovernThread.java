@@ -15,22 +15,23 @@ public class GovernThread extends Thread{
     private String state = "Disabled";
     private Team red1, red2, red3, blue1, blue2, blue3;
     private boolean red1b, red2b, red3b, blue1b, blue2b, blue3b;
+    private int r1, r2, r3, b1, b2, b3;
     
     public GovernThread(){
         red1b = red2b = red3b = blue1b = blue2b = blue3b = true;
-        System.out.println("Ok1");
+        System.out.println("Initializing Teams...");
         red1 = new Team(0000, 1, 1);
-        System.out.println("Ok2");
+        System.out.println("Red Team 1 Initialized");
         red2 = new Team(0001, 1, 2);
-        System.out.println("Ok3");
+        System.out.println("Red Team 2 Initialized");
         red3 = new Team(0002, 1, 3);
-        System.out.println("Ok4");
+        System.out.println("Red Team 3 Initialized");
         blue1 = new Team(0003, 2, 1);
-        System.out.println("Ok5");
+        System.out.println("Blue Team 1 Initialized");
         blue2 = new Team(0004, 2, 2);
-        System.out.println("Ok6");
+        System.out.println("Blue Team 2 Initialized");
         blue3 = new Team(0005, 2, 3);
-        System.out.println("Ok7");
+        System.out.println("Blue Team 3 Initialized");
     }
 
     void setBlue3TeamNumber(int parseInt) {
@@ -98,12 +99,27 @@ public class GovernThread extends Thread{
         blue3.startDSUpdates();
     }
     public void stopComms(){
+        
+        r1 = red1.getTeamNumber();
+        r2 = red2.getTeamNumber();
+        r3 = red3.getTeamNumber();
+        b1 = blue1.getTeamNumber();
+        b2 = blue2.getTeamNumber();
+        b3 = blue3.getTeamNumber();
         red1.stopDSUpdates();
         red2.stopDSUpdates();
         red3.stopDSUpdates();
         blue1.stopDSUpdates();
         blue2.stopDSUpdates();
         blue3.stopDSUpdates();
+        red1 = red2 = red3 = blue1 = blue2 = blue3 = null;        
+        red1 = new Team(r1, 1, 1);
+        red2 = new Team(r2, 1, 2);
+        red3 = new Team(r3, 1, 3);
+        blue1 = new Team(b1, 2, 1);
+        blue2 = new Team(b2, 2, 2);
+        blue3 = new Team(b3, 2, 3);
+        
     }
     public String getMatchState(){
         return state;

@@ -30,10 +30,12 @@ public class Team extends Thread
 	byte State;
 	byte Alliance;
 	byte Station;
+        int teamnum;
 	
 	
 	Team(int number, int Alliance, int Station)
 	{
+                teamnum = number;
 		this.Alliance = DSSender.byteForAlliance(Alliance);
 		this.Station = DSSender.byteForStation(Station);
 		
@@ -62,6 +64,7 @@ public class Team extends Thread
 	void stopDSUpdates()
 	{
 		runUpdateThread = false;
+                this.stop();
 	}
 	
 	String getAddress()
@@ -73,6 +76,9 @@ public class Team extends Thread
 	{
 		return addr;
 	}
+        public int getTeamNumber(){
+            return teamnum;
+        }
 	
 	void setState(int mode, boolean enabled)
 	{
