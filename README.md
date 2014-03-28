@@ -24,8 +24,7 @@ Apologies for not maintaining this project well. I've been extremely busy over t
 
 Donate!
 
-I'm working on a whole load of other FIRST-related projects, including a capture client for the RoboRIO that records the webcam to internal storage. 
-
+Bitcoin:
 1NMkzf4ZwtwAXW9pW5MwABn71vg5acD9q3
 
 Feel free to donate (or not!) to fund my hardware-related projects, including crazy new controllers for the upcoming seasons!
