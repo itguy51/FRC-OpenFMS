@@ -18,3 +18,14 @@ Eventual Features
 Explanation of OpenFMS
 
 The idea of OpenFMS is NOT to encourage teams to try to crack/break the real FMS, but more as a tool for them to hold their own mini competitions. It encourages teams to work together to form preliminary ideas for what types of bots help them score the highest. It's also a great way to explain how the real FMS works, so that teams are made aware of how the FMS cannot interfere with communications between the driver station and the robot, as the FMS cannot talk to a team's robot. 
+
+
+Apologies for not maintaining this project well. I've been extremely busy over the past year or so and just recently finished with the stresses of college applications. 
+
+Donate!
+
+I'm working on a whole load of other FIRST-related projects, including a capture client for the RoboRIO that records the webcam to internal storage. 
+
+1NMkzf4ZwtwAXW9pW5MwABn71vg5acD9q3
+
+Feel free to donate (or not!) to fund my hardware-related projects, including crazy new controllers for the upcoming seasons!
