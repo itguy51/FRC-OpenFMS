@@ -1,6 +1,9 @@
 FRC-OpenFMS
 ===========
 
+UPDATE: NEWS - I've almost finished refactoring this application into modules that can be included in any project - the new code is going to be up in a few weeks, and one thing to note - The new version is under a BSD license, and as a result may require your application to use a different license. Contact me if you have any licensing questions.
+
+
 Get the feeling of being at a FRC Competition without the hassle of traveling!
 
 Project Goal
